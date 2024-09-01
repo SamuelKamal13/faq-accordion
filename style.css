@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Work Sans';
+    background-color: hsl(275, 100%, 97%);
+    font-size: 16px;
+    color: hsl(292, 42%, 14%);
+    overflow-x: hidden;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    place-content: center;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+}
+
+.background {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(0, 0%, 100%);
+    width: 570px;
+    height: fit-content;
+    padding: 30px 24px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 hsl(0, 0%, 33%);
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.faq-question h1 {
+    font-size: 45px;
+    font-weight: 700;
+}
+
+.accordion-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.accordion-title h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.accordion-title img {
+    width: 20px;
+}
+
+hr {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: hsl(0, 0%, 75%);
+}
+
+a:hover {
+    color: hsl(292, 16%, 49%);
+    transition: 0.3s;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+}
+
+.accordion-content.active {
+    max-height: 500px; /* Set this to a value larger than the content's height */
+    opacity: 1;
+    transform: scaleY(1);
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: hsl(0, 0%, 33%);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Mobile Styles */
+@media (max-width: 375px) {
+    body {
+        height: 100vh;
+        display: grid;
+        justify-items: center;
+    }
+
+    .background {
+        content: url(./assets/images/background-pattern-mobile.svg);
+    }
+
+    .container {
+        width: 90%;
+        padding: 30px 24px;
+        border-radius: 20px;
+        box-shadow: 0 0 10px 0 hsl(0, 0%, 33%);
+        margin-top: 100px;
+        margin-bottom: 20px;
+    }
+}
